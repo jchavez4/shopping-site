@@ -3,6 +3,8 @@
 
 {% block body %}
 
+<title>Cart</title>
+
     {% if not melons %}
         Your cart is empty!
     {% else %}
@@ -20,14 +22,14 @@
         <tr>
             <td>{{ melon.common_name }}</td>
             <td>{{ melon.quantity }}</td>
-            <td>{{ melon.price }}</td>
-            <td>{{ melon.total_price }}</td>
+            <td>{{ melon.price_str() }}</td>
+            <td>{{ melon.total_price_str() }}</td>
         </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <h3>Total: {{ cost }}</h3>
+    <h3>Total: ${{ cost }}</h3>
 
     <a href="/checkout" class="btn btn-large btn-primary">Check Out</a>
     {% endif %}
